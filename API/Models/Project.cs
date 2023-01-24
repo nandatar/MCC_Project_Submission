@@ -17,11 +17,11 @@ public class Project
 	[Required, Column("description")]
 	public string Description { get; set; }
 	[Column("uml")]
-	public Byte[] UML { get; set; }
+	public Byte[]? UML { get; set; }
 	[Column("bpmn")]
-	public Byte[] BPMN { get; set; }
+	public Byte[]? BPMN { get; set; }
 	[Column("link")]
-	public string Link { get; set; }
+	public string? Link { get; set; }
 	[Column("current_status")]
 	public int CurrentStatus { get; set; }
 

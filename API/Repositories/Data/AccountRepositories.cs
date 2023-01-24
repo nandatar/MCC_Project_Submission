@@ -17,16 +17,30 @@ public class AccountRepositories : GeneralRepository<MyContext, Account, string>
 
 	public int Register(RegisterVM register)
 	{
-		var duplicate = _context.Employees.Where(s => s.NIK == register.NIK).ToList();
-		if (duplicate.Any())
+		var duplicate = _context.Accounts.Join(_context.Employees, a => a.NIK, e => e.NIK, (a, e) =>
+		new RegisterVM
+		{
+			NIK = a.NIK,
+			Email = e.Email,
+			Username = a.Username
+		});
+
+		var check = duplicate.Where(s => s.NIK == register.NIK).ToList();
+		if (check.Any())
 		{
 			return 0; // NIK SUDAH ADA
 		}
 
-		duplicate = _context.Employees.Where(s => s.Email == register.Email).ToList();
-		if (duplicate.Any())
+		check = duplicate.Where(s => s.Email == register.Email).ToList();
+		if (check.Any())
 		{
 			return 1; // EMAIL SUDAH ADA
+		}
+
+		check = duplicate.Where(s => s.Username == register.Username).ToList();
+		if (check.Any())
+		{
+			return 2; // USERNAME SUDAH ADA
 		}
 
 		Participant participant = new Participant()
@@ -59,7 +73,7 @@ public class AccountRepositories : GeneralRepository<MyContext, Account, string>
 		_context.Accounts.Add(account);
 		_context.SaveChanges();
 
-		return 2;
+		return 3;
 	}
 
 	public int Login(LoginVM login)

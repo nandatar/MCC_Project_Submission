@@ -37,6 +37,8 @@ public class AccountsController : BaseController<AccountRepositories, Account, s
 				case 1:
 					return Ok(new { statusCode = 204, message = "Email Sudah Dipakai" });
 				case 2:
+					return Ok(new { statusCode = 201, message = "Username Sudah Dipakai" });
+				case 3:
 					return Ok(new { statusCode = 201, message = "Register Succesfully!" });
 			}
 			return BadRequest(new { statusCode = 500, message = "Something Wrong! " });

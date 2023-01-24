@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230120101840_initial_db")]
+    [Migration("20230122064639_initial_db")]
     partial class initialdb
     {
         /// <inheritdoc />
@@ -171,7 +171,6 @@ namespace API.Migrations
                         .HasColumnName("batch");
 
                     b.Property<int>("ProjectID")
-                        .HasMaxLength(10)
                         .HasColumnType("int")
                         .HasColumnName("project_id");
 
@@ -196,7 +195,6 @@ namespace API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("ID"));
 
                     b.Property<byte[]>("BPMN")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)")
                         .HasColumnName("bpmn");
 
@@ -210,7 +208,6 @@ namespace API.Migrations
                         .HasColumnName("description");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("link");
 
@@ -221,7 +218,6 @@ namespace API.Migrations
                         .HasColumnName("project_title");
 
                     b.Property<byte[]>("UML")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)")
                         .HasColumnName("uml");
 

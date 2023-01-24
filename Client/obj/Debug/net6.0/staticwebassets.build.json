@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+j19I8FpUeJogVp4NZTf82Nm0dE5ZXOuOVstvj4ZjDk=",
+  "Hash": "qLYjlhF+wlh/jH2wWfIUw5pvtxeZ5i44OSisOaRkcp4=",
   "Source": "Client",
   "BasePath": "_content/Client",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\user\\source\\repos\\MCC_Project_Submission\\Client\\wwwroot\\js\\script.js",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\MCC_Project_Submission\\Client\\wwwroot\\",
+      "BasePath": "_content/Client",
+      "RelativePath": "js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "C:\\Users\\user\\source\\repos\\MCC_Project_Submission\\Client\\wwwroot\\js\\site.js",

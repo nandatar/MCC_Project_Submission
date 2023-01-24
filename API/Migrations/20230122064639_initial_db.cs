@@ -44,9 +44,9 @@ namespace API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     projecttitle = table.Column<string>(name: "project_title", type: "nvarchar(50)", maxLength: 50, nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    uml = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    bpmn = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    link = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    uml = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    bpmn = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    link = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     currentstatus = table.Column<int>(name: "current_status", type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -95,7 +95,7 @@ namespace API.Migrations
                     nik = table.Column<string>(type: "nchar(5)", nullable: false),
                     batch = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     statusmcc = table.Column<int>(name: "status_mcc", type: "int", nullable: false),
-                    projectid = table.Column<int>(name: "project_id", type: "int", maxLength: 10, nullable: false)
+                    projectid = table.Column<int>(name: "project_id", type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
