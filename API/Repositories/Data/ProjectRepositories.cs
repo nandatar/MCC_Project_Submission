@@ -2,6 +2,7 @@
 using API.Models;
 using API.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Repositories.Data;
 
@@ -44,5 +45,28 @@ public class ProjectRepositories : GeneralRepository<MyContext, Project, int>
         _context.Projects.Add(project);
         var result = _context.SaveChanges();
         return result;
+    }
+
+    public int EditProject([FromForm] EditProjectVM editProject)
+    {
+        
+        var UMLStream = new MemoryStream();
+        var BPMNStream = new MemoryStream();
+        editProject.UML.CopyToAsync(UMLStream);
+        editProject.BPMN.CopyToAsync(BPMNStream);
+        var project = new Project
+        {
+            ID = editProject.ID,
+            ProjectTitle = editProject.ProjectTitle,
+            Description = editProject.Description,
+            UML = UMLStream.ToArray(),
+            BPMN = BPMNStream.ToArray(),
+            Link = editProject.Link,
+            CurrentStatus = editProject.CurrentStatus,
+        };
+
+        _context.Projects.Entry(project).State = EntityState.Modified;
+        var result = _context.SaveChanges();
+        return result;  
     }
 }

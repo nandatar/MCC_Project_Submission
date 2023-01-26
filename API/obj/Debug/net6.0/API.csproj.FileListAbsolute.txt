@@ -143,6 +143,7 @@ C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\Newtonsof
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\SweetAlertSharp.dll
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\user\source\repos\MCC_Project_Submission\API\bin\Debug\net6.0\System.Drawing.Common.dll

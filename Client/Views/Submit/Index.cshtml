@@ -1,8 +1,37 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
 
-<form id="upload-form" enctype="multipart/form-data">
-    <input type="file" id="image-file" name="image-file" accept="image/*">
-    <button type="submit">Upload</button>
-</form>
+<div class="card-header text-center pt-4">
+    <h5>Submit Project</h5>
+</div>
+<div class="card-body">
+    <form role="form" method="POST" enctype="multipart/form-data" action="Submit/Submit" id="formSubmit">
+        <div class="mb-3">
+            <input type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="Description" placeholder="Desciption" aria-label="Title">
+        </div>
+        <div class="mb-3">
+            <input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML">
+        </div>
+        <div class="mb-3">
+            <input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="Link" placeholder="Link Github" aria-label="Link Github">
+        </div>
+        <div class="text-center">
+            <button type="submit" id="btn_submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var message = '@TempData["message"]';
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/login.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"</script>

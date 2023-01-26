@@ -9,7 +9,6 @@ namespace API.Models;
 [Table("project")]
 public class Project
 {
-
 	[Key, Column("id")]
 	public int? ID { get; set; }
 	[Required, Column("project_title"), MaxLength(50)]

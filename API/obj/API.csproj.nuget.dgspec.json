@@ -73,6 +73,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "SweetAlert": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "SweetAlertSharp": {
+              "target": "Package",
+              "version": "[1.3.0, )"
             }
           },
           "imports": [

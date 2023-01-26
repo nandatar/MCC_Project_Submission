@@ -64,7 +64,7 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
         {
             return NotFound();
         }
-        return File(image.UML, "image/jpg");
+        return File(image.UML, "image/png");
     }
 
     [HttpGet]
@@ -76,35 +76,24 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
         {
             return NotFound();
         }
-        return File(image.BPMN, "image/jpg");
+        return File(image.BPMN, "image/png");
+    }
+
+    [HttpPut]
+    [Route("Edit")]
+    public ActionResult EditProject([FromForm] EditProjectVM editProject)
+    {
+        try
+        {
+            var result = _repo.EditProject(editProject);
+            return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Update" }) :
+            Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
+        }
+        catch(Exception e)
+        {
+            return BadRequest(new { statusCode = 500, message = e });
+        }
     }
 
 }
-
-//[HttpPost]
-//public async Task<IActionResult> UploadImage(SubmitProjectVM submitProject, [FromForm] IFormFile image)
-//{
-//	var file = Request.Form.Files[0];
-//	var stream = file.OpenReadStream();
-//	var imageData = new byte[file.Length];
-//	stream.Read(imageData, 0, (int)file.Length);
-
-//	var submit = new Project()private readonly MyContext _context;
-//public ProjectRepositories(MyContext context) : base(context)
-//{
-//	_context = context;
-//}
-//	{
-//		ProjectTitle = submitProject.Title,
-//		Description = submitProject.Description,
-//		UML = imageData,
-//		CurrentStatus = 1,
-
-//	};
-
-//	_context.Projects.Add(submit);
-//	_context.SaveChanges();
-
-//	return Ok();
-//}
 

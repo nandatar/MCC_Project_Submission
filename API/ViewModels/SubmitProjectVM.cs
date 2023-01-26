@@ -1,6 +1,4 @@
-﻿
-
-namespace API.ViewModels;
+﻿namespace API.ViewModels;
 
 public class SubmitProjectVM
 {
@@ -8,5 +6,5 @@ public class SubmitProjectVM
 	public string Description { get; set; }
 	public IFormFile UML { get; set; }
 	public IFormFile BPMN { get; set; }
-	public string Link { get; set; }
+	public string? Link { get; set; }
 }
