@@ -23,6 +23,8 @@ public class Project
 	public string? Link { get; set; }
 	[Column("current_status")]
 	public int CurrentStatus { get; set; }
+	[Column("score")]
+	public int? Score { get; set; }
 
 	//relasi
 	[JsonIgnore]

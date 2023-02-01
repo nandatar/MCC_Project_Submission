@@ -78,8 +78,7 @@ namespace API.Migrations
                         .HasColumnType("nchar(5)")
                         .HasColumnName("nik");
 
-                    b.Property<int>("ClassID")
-                        .HasMaxLength(10)
+                    b.Property<int?>("ClassID")
                         .HasColumnType("int")
                         .HasColumnName("class_id");
 
@@ -118,7 +117,6 @@ namespace API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("ID"));
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("message");
 
@@ -127,15 +125,8 @@ namespace API.Migrations
                         .HasColumnName("project_id");
 
                     b.Property<string>("Revision")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("revision");
-
-                    b.Property<string>("Score")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("score");
 
                     b.Property<int?>("StatusID")
                         .HasColumnType("int")
@@ -167,7 +158,7 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasColumnName("batch");
 
-                    b.Property<int>("ProjectID")
+                    b.Property<int?>("ProjectID")
                         .HasColumnType("int")
                         .HasColumnName("project_id");
 
@@ -213,6 +204,10 @@ namespace API.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("project_title");
+
+                    b.Property<int?>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("score");
 
                     b.Property<byte[]>("UML")
                         .HasColumnType("varbinary(max)")
@@ -260,9 +255,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.ClassMCC", "ClassMCC")
                         .WithMany("Employees")
-                        .HasForeignKey("ClassID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClassID");
 
                     b.HasOne("API.Models.Participant", "Participant")
                         .WithOne("Employee")
@@ -294,9 +287,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Project", "Project")
                         .WithMany("Participants")
-                        .HasForeignKey("ProjectID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProjectID");
 
                     b.Navigation("Project");
                 });

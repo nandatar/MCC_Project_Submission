@@ -76,7 +76,6 @@ C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.AssemblyInfoInputs.cache
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.AssemblyInfo.cs
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.RazorAssemblyInfo.cache
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.RazorAssemblyInfo.cs
@@ -96,3 +95,8 @@ C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\refint
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.pdb
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\Client.genruntimeconfig.cache
 C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\ref\Client.dll
+C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutBuatan.cshtml.rz.scp.css
+C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutDASH.cshtml.rz.scp.css
+C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutParticipant.cshtml.rz.scp.css
+C:\Users\user\source\repos\MCC_Project_Submission\Client\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutTrainer.cshtml.rz.scp.css
+C:\Users\user\source\repos\MCC_Project_Submission\Client\bin\Debug\net6.0\Antlr3.Runtime.dll

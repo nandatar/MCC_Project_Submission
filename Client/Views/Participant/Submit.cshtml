@@ -1,0 +1,46 @@
+﻿@{
+	Layout = "_LayoutParticipant";
+}
+
+<div class="card card-plain">
+	<div class="card-header pb-0 text-start">
+		<h4 class="font-weight-bolder">Submit Project</h4>
+		<p class="mb-0">.....</p>
+	</div>
+	<div class="card-body">
+		<form role="form" method="POST" enctype="multipart/form-data" action="Participant/Submit" id="formSubmit">
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title">
+				<label for="floatingInput">Title</label>
+			</div>
+			<div class="form-floating">
+				<textarea class="form-control" name="Description" placeholder="Leave a comment here"
+						  id="floatingTextarea" style="height: 150px;"></textarea>
+				<label for="floatingTextarea">Description</label>
+			</div>
+			<div class="mb-3">
+				<label for="formUML" class="form-label">UML file image</label>
+				<input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML" id="formUML">
+			</div>
+			<div class="mb-3">
+				<label for="formUML" class="form-label">BPMN file image </label>
+				<input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN" id="formBPMN">
+			</div>
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" name="Link" placeholder="Link Github" aria-label="Link Github">
+				<label for="floatingInput">Link Github</label>
+			</div>
+			<div class="text-center">
+				<button type="submit" id="btn_submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	var message = '@TempData["message"]';
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/login.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"</script>

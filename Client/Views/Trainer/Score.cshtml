@@ -1,0 +1,47 @@
+﻿@{
+	Layout = "_LayoutTrainer";
+}
+<table id="example" class="table table-striped" style="width:100%">
+    <thead class="table-info">
+        <tr>
+            <th>Project Title</th>
+            <th>Description</th>
+            <th>NIK</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Class</th>
+            <th>Batch</th>
+            <th>Link Github</th>
+            <th>Details</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+</table>
+@*<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Score</button>*@
+
+<!-- The Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-11"><h5 class="modal-title text-center" id="exampleModalLabel">Input Score</h5></div>
+                <div class="col-1"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            </div>
+            <div class="modal-body">
+
+                <form class="row g-3 needs-validation" id="dormValidation" method="posts">
+                    <div class="mb-3">
+                        <label for="exampleInputScore" class="form-label">Score</label>
+                        <input type="number" class="form-control" name="score" id="score" placeholder="1 - 100">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="btnAdd" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

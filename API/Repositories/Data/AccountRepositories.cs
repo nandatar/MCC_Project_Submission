@@ -48,7 +48,6 @@ public class AccountRepositories : GeneralRepository<MyContext, Account, string>
 			NIK = register.NIK,
 			Batch = register.Batch,
 			Status_MCC = (Status_MCC)1,
-			ProjectID = 1,
 		};
 		_context.Participants.Add(participant);
 
@@ -120,6 +119,20 @@ public class AccountRepositories : GeneralRepository<MyContext, Account, string>
 		var getRoles = Enum.GetName(_context.Accounts.SingleOrDefault(ac => ac.NIK == getNIK).Role);
 
 		return getRoles;
+	}
+
+	public string GetNIK(string email_username)
+	{
+		var getNIK = "";
+		try
+		{
+			getNIK = _context.Employees.SingleOrDefault(e => e.Email == email_username).NIK;
+		}
+		catch
+		{
+			getNIK = _context.Accounts.SingleOrDefault(e => e.Username == email_username).NIK;
+		}
+		return getNIK;
 	}
 
 }

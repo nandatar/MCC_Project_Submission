@@ -3,6 +3,7 @@ using API.ViewModels;
 using Client.Base;
 using Client.Repository.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Client.Controllers
 {
@@ -19,24 +20,64 @@ namespace Client.Controllers
         {
             var jwtToken = await repository.Auth(login);
             var token = jwtToken.generateToken;
+
             if (token == null)
             {
                 TempData["message"] = "Gagal Login";
                 return RedirectToAction("index");
             }
-            TempData["message"] = "Login Berhasil";
             HttpContext.Session.SetString("JWToken", token);
-            return RedirectToAction("index", "Home");
-        }
+			TempData["message"] = "Login Berhasil";
+
+            return RedirectToAction("Index");
+
+		}
         public IActionResult Index()
         {
-            return View();
-        }
+			if (HttpContext.Session.GetString("JWToken") != null)
+            {
+				try
+				{
+					string jwt = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+					var handler = new JwtSecurityTokenHandler();
+					var jwtSecurityToken = handler.ReadJwtToken(jwt);
+					var payload = jwtSecurityToken.Claims;
+					string role = payload.FirstOrDefault(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
+					if (role == "Participant")
+					{
+						return RedirectToAction("index", "Participant");
+					}
+					return RedirectToAction("index", "Trainer");
+				}
+				catch (Exception)
+				{
 
-        [HttpGet("SignUp/")]
-        public IActionResult SignUp()
+					return View();
+				}
+			}
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Landing()
         {
-            return View("SignUp");
+			//get user from jwt payload
+			string jwt = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+			var handler = new JwtSecurityTokenHandler();
+			var jwtSecurityToken = handler.ReadJwtToken(jwt);
+			var payload = jwtSecurityToken.Claims;
+			string role = payload.FirstOrDefault(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
+			if (role == "Participant")
+			{
+				return RedirectToAction("index", "Participant");
+			}
+			return RedirectToAction("index", "Trainer");
+		}
+
+        [HttpGet("Register/")]
+        public IActionResult Register()
+        {
+            return View("Register");
         }
 
         [HttpPost]
@@ -52,7 +93,7 @@ namespace Client.Controllers
             }
 
             TempData["message"] = "Register Gagal";
-            return RedirectToAction("index", "signup");
+            return RedirectToAction("index", "register");
         }
     }
 }

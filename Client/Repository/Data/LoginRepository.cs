@@ -49,7 +49,6 @@ namespace Client.Repository.Data
             ResponVM status = null;
 
             register.Position = "Application Developer";
-            register.Batch = "99";
 
             StringContent content = new StringContent(JsonConvert.SerializeObject(register), Encoding.UTF8, "application/json");
             var result = await httpClient.PostAsync(request + "Register/", content);

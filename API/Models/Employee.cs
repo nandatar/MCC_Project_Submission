@@ -11,13 +11,13 @@ public class Employee
 	[Key, Column("nik", TypeName = "nchar(5)")]
 	public string NIK { get; set; }
 	[Required, Column("name"), MaxLength(50)]
-	public string Name { get; set; }
+	public string? Name { get; set; }
 	[Required, Column("email"), MaxLength(50)]
-	public string Email { get; set; }
+	public string? Email { get; set; }
 	[Required, Column("position"), MaxLength(50)]
-	public string Position { get; set; }
-	[Column("class_id"), MaxLength(10)]
-	public int ClassID { get; set; }
+	public string? Position { get; set; }
+	[Column("class_id")]
+	public int? ClassID { get; set; }
 
 
 	//relation

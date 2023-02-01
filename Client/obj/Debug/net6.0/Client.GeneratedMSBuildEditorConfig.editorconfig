@@ -44,8 +44,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Login/SignUp.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnblVwLmNzaHRtbA==
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Login/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Participant/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Participant/MyProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRcTXlQcm9qZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Participant/Submit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRcU3VibWl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/Error.cshtml]
@@ -60,8 +72,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Submit/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWl0XEluZGV4LmNzaHRtbA==
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Trainer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Trainer/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lclxSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Trainer/Score.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lclxTY29yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/_ViewImports.cshtml]
@@ -75,3 +95,19 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-j41ub9gw8f
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/_LayoutBuatan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRCdWF0YW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fzv3nvliph
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/_LayoutDASH.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREQVNILmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-yb69geqeqq
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/_LayoutParticipant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQYXJ0aWNpcGFudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-tywsp82smh
+
+[C:/Users/user/source/repos/MCC_Project_Submission/Client/Views/Shared/_LayoutTrainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRUcmFpbmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-1zyxpnw7l9

@@ -1,6 +1,7 @@
 using Client;
 using Client.Base;
 using Client.Repository.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -24,7 +25,7 @@ builder.Services.AddControllersWithViews();
 //Add scoped
 
 builder.Services.AddScoped<LoginRepository>();
-builder.Services.AddScoped<SubmitRepository>();
+builder.Services.AddScoped<ParticipantRepository>();
 builder.Services.AddScoped<Address>();
 
 // Configure JWT

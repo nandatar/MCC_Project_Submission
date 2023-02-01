@@ -1,0 +1,103 @@
+﻿@{
+	Layout = "_LayoutParticipant";
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/css/project.css" rel="stylesheet" />
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container main-secction">
+	<div class="row">
+		<div class="row user-left-part">
+			<div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
+				<div class="row ">
+					<div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center pt-5">
+						<img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" class="rounded-circle">
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center pt-5">
+						<button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-success btn-block follow">Finished</button>
+						<button onclick="EditProject()"class="btn btn-warning btn-block">Edit</button>
+						<button onclick="DeleteProject()"class="btn btn-danger btn-block">Delete</button>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
+				<div class="row profile-right-section-row">
+					<div class="col-md-12 profile-header">
+						<div class="row">
+							<div class="col-md-12 profile-header-section1 pull-left">
+								<h1>Juan Perez</h1>
+								<h5>Developer</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- Tab panes -->
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+										<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+												data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+												aria-selected="true">
+											Project
+										</button>
+										<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+												data-bs-target="#nav-profile" type="button" role="tab"
+												aria-controls="nav-profile" aria-selected="false">
+											Revision
+										</button>
+									</div>
+								</nav>
+								<div class="tab-content pt-3" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">									
+										<div class="row">
+											<div class="col-md-4">
+												<label>Project Title</label>
+											</div>
+											<div class="col-md-8">
+												<p id="project_projectTitle">Aplikasi</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<label>Description</label>
+											</div>
+											<div class="col-md-8">
+												<p id="project_description">ini adalah aplikasi</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<label>Current Status</label>
+											</div>
+											<div class="col-md-8">
+												<p id="project_status">Revisi</p>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+										<table id="table_revisi_project" class="display">
+											<thead>
+												<tr>
+													<th>No</th>
+													<th>Revisi</th>
+													<th>Message</th>
+													<th>Status</th>
+													<th>Date</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

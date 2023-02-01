@@ -4,6 +4,7 @@ using API.Models;
 using API.Repositories.Data;
 using API.ViewModels;
 using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -19,33 +20,30 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
         _context = context;
     }
 
-    [HttpPost]
-    [Route("submit")]
-    //public async Task<IActionResult> Upload([FromForm] SubmitProjectVM submitProject)
-    //{
-    //    var UMLStream = new MemoryStream();
-    //    var BPMNStream = new MemoryStream();
+	[HttpPost]
+	[Route("submit")]
+	public ActionResult Submit(SubmitVM submit)
+	{
+		try
+		{
+			var result = _repo.Submit(submit);
+			return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Insert!" }) :
+			Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
+		}
+		catch
+		{
+			return BadRequest(new { statusCode = 500, message = "" });
+		}
+	}
 
-    //    await submitProject.UML.CopyToAsync(UMLStream);
-    //    await submitProject.BPMN.CopyToAsync(BPMNStream);
-    //    var project = new Project
-    //    {
-    //        ProjectTitle = submitProject.Title,
-    //        Description = submitProject.Description,
-    //        CurrentStatus = 1,
-    //        UML = UMLStream.ToArray(),
-    //        BPMN = BPMNStream.ToArray(),
-    //        Link = submitProject.Link
-    //    };
-    //    _context.Projects.Add(project);
-    //    await _context.SaveChangesAsync();
-    //    return Ok();
-    //}
-    public ActionResult Submit([FromForm] SubmitProjectVM submitProject)
+
+	[HttpPost]
+    [Route("submitproject")]
+    public ActionResult SubmitProject([FromForm] SubmitProjectVM submitProject)
     {
         try
         {
-            var result = _repo.Submit(submitProject);
+            var result = _repo.SubmitProject(submitProject);
             return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Insert!" }) :
             Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
         }
@@ -92,6 +90,58 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
         catch(Exception e)
         {
             return BadRequest(new { statusCode = 500, message = e });
+        }
+    }
+    [HttpGet]
+    [Route("Master")]
+    [AllowAnonymous]
+    public ActionResult GetMaster()
+    {
+        try
+        {
+            var result = _repo.MasterProject();
+            return result.Count() == 0
+            ? Ok(new { statusCode = 204, message = "Data Not Found!" })
+            : Ok(new { statusCode = 201, message = "Success", data = result });
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { statusCode = 500, message = $"Something Wrong! : {e.Message}" });
+        }
+
+    }
+
+	[HttpGet]
+	[Route("Master/{id}")]
+	public ActionResult GetMaster(int id)
+    {
+		try
+		{
+			var result = _repo.MasterProject(id);
+			return result.Count() == 0
+			? Ok(new { statusCode = 204, message = "Data Not Found!" })
+			: Ok(new { statusCode = 201, message = "Success", data = result });
+		}
+		catch (Exception e)
+		{
+			return BadRequest(new { statusCode = 500, message = $"Something Wrong! : {e.Message}" });
+		}
+	}
+
+    [HttpGet]
+    [Route("Master/Score")]
+    public ActionResult MasterProjectScore()
+    {
+        try
+        {
+            var result = _repo.MasterProjectScore();
+            return result.Count() == 0
+            ? Ok(new { statusCode = 204, message = "Data Not Found!" })
+            : Ok(new { statusCode = 201, message = "Success", data = result });
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { statusCode = 500, message = $"Something Wrong! : {e.Message}" });
         }
     }
 

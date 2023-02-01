@@ -66,26 +66,24 @@ public class AccountsController : BaseController<AccountRepositories, Account, s
 				default:
 					// bikin method untuk mendapatkan role-nya user yang login
 					var roles = _repo.UserRoles(loginVM.Email_Username);
+					var nik = _repo.GetNIK(loginVM.Email_Username);
 
 					var claims = new List<Claim>()
 					{
 						new Claim("email/username", loginVM.Email_Username),
-						new Claim("NIK", loginVM.Email_Username)
+						new Claim("NIK", nik)
 
 					};
 
-
-
 					claims.Add(new Claim(ClaimTypes.Role, roles));
 					
-
 					var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_con["JWT:Key"]));
 					var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 					var token = new JwtSecurityToken(
 						_con["JWT:Issuer"],
 						_con["JWT:Audience"],
 						claims,
-						expires: DateTime.Now.AddMinutes(10),
+						expires: DateTime.Now.AddMinutes(100),
 						signingCredentials: signIn
 						);
 

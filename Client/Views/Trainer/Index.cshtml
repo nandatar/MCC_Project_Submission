@@ -1,0 +1,38 @@
+﻿@{
+	Layout = "_LayoutTrainer";
+}
+
+<!-- Tabel Master Project -->
+<table id="tableMProject" class="display">
+	<thead>
+		<tr>
+			<th>Project Title</th>
+			<th>Description</th>
+			<th>NIK</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Class</th>
+			<th>Batch</th>
+			<th>Status</th>
+			<th>Details</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+</table>
+
+<!-- Modal element -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel">Image from API</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" id="modal-body">
+				<img id="modal-body-image" src="" alt="Image">
+			</div>
+		</div>
+	</div>
+</div>

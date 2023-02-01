@@ -14,8 +14,8 @@ public class Participant
 	public string Batch { get; set; }
 	[Required, Column("status_mcc")]
 	public Status_MCC Status_MCC { get; set; }
-	[Column("project_id"), MaxLength(10)]
-	public int ProjectID { get; set; }
+	[Column("project_id")]
+	public int? ProjectID { get; set; }
 
 
 	//relation
