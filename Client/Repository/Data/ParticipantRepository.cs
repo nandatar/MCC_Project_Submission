@@ -54,7 +54,36 @@ namespace Client.Repository.Data
             };
 
             StringContent content = new StringContent(JsonConvert.SerializeObject(submit), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync(request + "submit/", content);
+            var result = await httpClient.PostAsync(request + "Submit/", content);
+
+            string apiResponse = await result.Content.ReadAsStringAsync();
+            status = JsonConvert.DeserializeObject<ResponVM>(apiResponse);
+
+            return status;
+        }
+
+        public async Task<ResponVM> Edit([FromForm] SubmitProjectVM submitProject)
+        {
+            ResponVM status = null;
+            var UMLStream = new MemoryStream();
+            var BPMNStream = new MemoryStream();
+
+            submitProject.UML.CopyToAsync(UMLStream);
+            submitProject.BPMN.CopyToAsync(BPMNStream);
+
+            var submit = new SubmitVM
+            {
+                NIK = submitProject.NIK, //get nik by login
+                ProjectTitle = submitProject.Title,
+                Description = submitProject.Description,
+                CurrentStatus = 1,
+                UML = UMLStream.ToArray(),
+                BPMN = BPMNStream.ToArray(),
+                Link = submitProject.Link
+            };
+
+            StringContent content = new StringContent(JsonConvert.SerializeObject(submit), Encoding.UTF8, "application/json");
+            var result = await httpClient.PutAsync(request + "Edit/", content);
 
             string apiResponse = await result.Content.ReadAsStringAsync();
             status = JsonConvert.DeserializeObject<ResponVM>(apiResponse);

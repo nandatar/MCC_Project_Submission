@@ -1,38 +1,150 @@
 ﻿@{
-	Layout = "_LayoutParticipant";
+	Layout = "_LayoutBox";
 }
 
-<!-- Form Start -->
-<div class="container-fluid pt-4 px-4">
-	<div class="row g-4">
-		<div class="col-sm-12 col-xl-6">
-			<div class="bg-light rounded h-100 p-4">
-				<h6 class="mb-4">Description List</h6>
-				<dl class="row mb-0">
-					<dt class="col-sm-4">Name</dt>
-					<dd id="name" class="col-sm-8">Stevhan Maulana</dd>
-
-					<dt class="col-sm-4">Class</dt>
-					<dd id="class" class="col-sm-8">.NET</dd>
-
-					<dt class="col-sm-4">Batch</dt>
-					<dd id="batch" class="col-sm-8"></dd>
-
-				</dl>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex flex-wrap align-items-center justify-content-between">
+					<div class="d-flex flex-wrap align-items-center">
+						<div class="profile-img position-relative me-3 mb-3 mb-lg-0 profile-logo profile-logo1">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid rounded-pill avatar-100">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_1.png" alt="User-Profile" class="theme-color-purple-img img-fluid rounded-pill avatar-100">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_2.png" alt="User-Profile" class="theme-color-blue-img img-fluid rounded-pill avatar-100">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_4.png" alt="User-Profile" class="theme-color-green-img img-fluid rounded-pill avatar-100">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_5.png" alt="User-Profile" class="theme-color-yellow-img img-fluid rounded-pill avatar-100">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_3.png" alt="User-Profile" class="theme-color-pink-img img-fluid rounded-pill avatar-100">
+						</div>
+						<div class="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
+							<h4 id="name2" class="me-2 h4">Austin Robertson</h4>
+							<span id="position1"> - Web Developer</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="col-sm-12 col-xl-6">
-			<div class="bg-light rounded h-100 p-4">
-				<h6 class="mb-4">INFO</h6>
-				<div id="info_text"> TEST </div>
-				<dt class="col-sm-4">Project Title</dt>
-				<dd id="project_title" class="col-sm-8">-</dd>
-				<dt class="col-sm-4">Description</dt>
-				<dd id="description" class="col-sm-8">-</dd>
-				<dt class="col-sm-4">Status</dt>
-				<dd id="status" class="col-sm-8">-</dd>
+	</div>
+	<div class="col-lg-6">
+		<div id="profile-profile">
+			<div class="card">
+				<div class="card-header">
+					<div class="header-title">
+						<h4 class="card-title">Profile</h4>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="text-center">
+						<div class="user-profile">
+							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/01.png" alt="profile-img" class="rounded-pill avatar-130 img-fluid">
+						</div>
+						<div class="mt-3">
+							<h3 id="name1" class="d-inline-block">Austin Robertson</h3>
+							<p id="position2" class="d-inline-block pl-3"> - Web developer</p>
+							<p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<div class="header-title">
+						<h4 class="card-title">About User</h4>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="user-bio">
+						<p>Tart I love sugar plum I love oat cake. Sweet roll caramels I love jujubes. Topping cake wafer.</p>
+					</div>
+					<div class="mt-2">
+						<h6 class="mb-1">NIK:</h6>
+						<p id="nik" >10001</p>
+					</div>		
+					<div class="mt-2">
+						<h6  class="mb-1">Class:</h6>
+						<p id="class">.NET</p>
+					</div>
+					<div class="mt-2">
+						<h6 class="mb-1">Batch:</h6>
+						<p id="batch">73</p>
+					</div>
+					<div class="mt-2">
+						<h6 class="mb-1">Email:</h6>
+						<p><a href="#" class="text-body" id="email"> austin@gmail.com</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div id="profile-project">
+			<div class="card">
+				<div class="card-header">
+					<div class="header-title">
+						<h4 class="card-title">Project</h4>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="text-center">
+						<div class="project-profile">
+							<img src="~/net_core_logo.svg.png" alt="profile-img" class="rounded-pill avatar-130 img-fluid">
+						</div>
+						<div class="mt-3">
+							<h3  id="project_title" class="d-inline-block">Project Title</h3>
+							<p id="class1" class="d-inline-block pl-3"> - .NET</p>
+							<p id="description" class="mb-0">
+								You dont have project, please submit one!
+
+								Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
+								Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+								Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.
+								auctor ultricies ante, at dapibus urna viverra sed nullam mi arcu, tempor vitae interdum a.
+							</p>
+							<div class="mt-2">
+								<h6 class="mb-1">Project Status:</h6>
+								<p id="status">You dont have project, please submit one!</p>
+							</div>							
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- Form End -->
+
+
+@*<!-- Form Start -->
+	<div class="container-fluid pt-4 px-4">
+	<div class="row g-4">
+	<div class="col-sm-12 col-xl-6">
+	<div class="bg-light rounded h-100 p-4">
+	<h6 class="mb-4">Description List</h6>
+	<dl class="row mb-0">
+	<dt class="col-sm-4">Name</dt>
+	<dd id="name" class="col-sm-8">Stevhan Maulana</dd>
+
+	<dt class="col-sm-4">Class</dt>
+	<dd id="class" class="col-sm-8">.NET</dd>
+
+	<dt class="col-sm-4">Batch</dt>
+	<dd id="batch" class="col-sm-8"></dd>
+
+	</dl>
+	</div>
+	</div>
+	<div class="col-sm-12 col-xl-6">
+	<div class="bg-light rounded h-100 p-4">
+	<h6 class="mb-4">INFO</h6>
+	<div id="info_text"> TEST </div>
+	<dt class="col-sm-4">Project Title</dt>
+	<dd id="project_title" class="col-sm-8">-</dd>
+	<dt class="col-sm-4">Description</dt>
+	<dd id="description" class="col-sm-8">-</dd>
+	<dt class="col-sm-4">Status</dt>
+	<dd id="status" class="col-sm-8">-</dd>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!-- Form End -->
+	*@

@@ -45,9 +45,9 @@ namespace Client.Controllers
 					string role = payload.FirstOrDefault(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role").Value;
 					if (role == "Participant")
 					{
-						return RedirectToAction("index", "Participant");
+						return RedirectToAction("index", "participant");
 					}
-					return RedirectToAction("index", "Trainer");
+					return RedirectToAction("index", "trainer");
 				}
 				catch (Exception)
 				{

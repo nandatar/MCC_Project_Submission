@@ -47,7 +47,26 @@ public class ProjectRepositories : GeneralRepository<MyContext, Project, int>
 
 		return 1;
     }
-    public int SubmitProject([FromForm] SubmitProjectVM submitProject)
+
+	public int Edit(SubmitVM submit)
+	{
+		var participant= _context.Participants.FirstOrDefault(x => x.NIK == submit.NIK);
+		var project = new Project
+		{
+            ID = participant.ProjectID,
+			ProjectTitle = submit.ProjectTitle,
+			Description = submit.Description,
+			UML = submit.UML,
+			BPMN = submit.BPMN,
+			Link = submit.Link,
+			CurrentStatus = 1,
+		};
+		_context.Projects.Update(project);
+		_context.SaveChanges();
+
+		return 1;
+	}
+	public int SubmitProject([FromForm] SubmitProjectVM submitProject)
     {
         var UMLStream = new MemoryStream();
         var BPMNStream = new MemoryStream();
@@ -177,4 +196,24 @@ public class ProjectRepositories : GeneralRepository<MyContext, Project, int>
 
         return results;
     }
+
+    public int Finalization(FinalVM final)
+    {
+		var entity = _context.Projects.Find(final.ID);
+		entity.CurrentStatus = 5;
+        entity.Link = final.Link;
+
+		var result = _context.SaveChanges();
+		return result;
+	}
+
+	public int Score(ScoreVM score)
+	{
+		var entity = _context.Projects.Find(score.ID);
+		entity.Score = score.Score;
+        entity.CurrentStatus = 6;
+
+		var result = _context.SaveChanges();
+		return result;
+	}
 }

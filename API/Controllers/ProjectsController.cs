@@ -36,6 +36,22 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
 		}
 	}
 
+	[HttpPut]
+	[Route("Edit")]
+	public ActionResult Edit(SubmitVM submit)
+	{
+		try
+		{
+			var result = _repo.Edit(submit);
+			return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Insert!" }) :
+			Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
+		}
+		catch
+		{
+			return BadRequest(new { statusCode = 500, message = "" });
+		}
+	}
+
 
 	[HttpPost]
     [Route("submitproject")]
@@ -78,7 +94,7 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
     }
 
     [HttpPut]
-    [Route("Edit")]
+    [Route("EditProject")]
     public ActionResult EditProject([FromForm] EditProjectVM editProject)
     {
         try
@@ -92,6 +108,7 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
             return BadRequest(new { statusCode = 500, message = e });
         }
     }
+
     [HttpGet]
     [Route("Master")]
     [AllowAnonymous]
@@ -145,5 +162,36 @@ public class ProjectsController : BaseController<ProjectRepositories, Project, i
         }
     }
 
+	[HttpPost]
+	[Route("Final")]
+	public ActionResult Finalizaiton(FinalVM final)
+	{
+		try
+		{
+			var result = _repo.Finalization(final);
+			return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Insert!" }) :
+			Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
+		}
+		catch
+		{
+			return BadRequest(new { statusCode = 500, message = "" });
+		}
+	}
+
+	[HttpPost]
+	[Route("Score")]
+	public ActionResult Score(ScoreVM score)
+	{
+		try
+		{
+			var result = _repo.Score(score);
+			return result == 0 ? Ok(new { statusCode = 204, message = "Data failed to Insert!" }) :
+			Ok(new { statusCode = 201, message = "Data Saved Succesfully!" });
+		}
+		catch
+		{
+			return BadRequest(new { statusCode = 500, message = "" });
+		}
+	}
 }
 
