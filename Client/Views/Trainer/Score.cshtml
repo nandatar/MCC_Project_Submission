@@ -1,32 +1,48 @@
 ﻿@{
 	Layout = "_LayoutBoxTrainer";
 }
-<table id="tableMscore" class="table table-striped" style="width:100%">
-	<thead class="table-info">
-		<tr>
-			<th>Project Title</th>
-			<th>Description</th>
-			<th>NIK</th>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Class</th>
-			<th>Batch</th>
-			<th>Link Github</th>
-			<th>Details</th>
-			<th>Status</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-</table>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="card-header d-flex justify-content-between">
+				<div class="header-title">
+					<h4 class="card-title">Projects Need Scoring</h4>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table id="tableMscore" class="table table-striped" style="width:100%">
+						<thead class="table-info">
+							<tr>
+								<th>Action</th>
+								<th>Details</th>
+								<th>Link Github</th>
+								<th>Project Title</th>
+								<th>Description</th>
+								<th>NIK</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Class</th>
+								<th>Batch</th>
+								<th>Link Github</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @*<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Score</button>*@
 
 <!-- Modal element -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-fullscreen" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="modalLabel">Image from API</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -37,11 +53,6 @@
 	</div>
 </div>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-	SCORE
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,23 +68,23 @@
 					<small id="description" class="text-black-50">
 						lTincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
 					</small>
-					
+
 					<div class="location mt-4">
 						<div><small id="name" class="text-truncate ml-2">Nama Peserta</small></div>
-			
+
 						<div><small id="email" class="text-truncate ml-2">email@gmail.com</small> </div>
 					</div>
 					<div class="rate bg-success py-3 text-white mt-3">
 						<h6 class="mb-0">Rate your driver</h6>
 						<div id="rate_score" class="rating">
-							<input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> 
-							<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-							<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
-							<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
+							<input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+							<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+							<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+							<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
 							<input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
 						</div>
 						<div class="buttons px-4 mt-0">
-							<button onclick="submitScore()" class="btn btn-warning btn-block rating-submit">Submit</button>
+							<button id="score_btn" class="btn btn-warning btn-block rating-submit">Submit</button>
 						</div>
 					</div>
 				</div>

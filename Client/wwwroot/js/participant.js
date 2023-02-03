@@ -5,9 +5,10 @@
         console.log(nik);
         getBiodata(nik);
         getProject(nik);
+        setIcon(nik);
     }
 
-    if (window.location.pathname === "/myproject" || window.location.pathname === "/Myproject/" || window.location.pathname === "/myproject/") {
+    if (window.location.pathname === "/myproject" || window.location.pathname === "/MyProject/" || window.location.pathname === "/myproject/") {
         console.log("myproject terbuka");
         var nik = getCookie('nik');
         getBiodata(nik);
@@ -15,12 +16,16 @@
         getProject(nik);
         getProjectEdit(nik);
         dataRevisi(nik);
+        GetScore(nik);
+
     }
 
     if (window.location.pathname === "/submit" || window.location.pathname === "/Submit") {
         var nik = getCookie('nik');
         getBiodata(nik);
     }
+
+
 
     var data = message;
     console.log(data)
@@ -59,7 +64,7 @@ function DeleteProject() {
             var project = result.data.projectID;
             Swal.fire({
                 title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                text: "This project will be deleted!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -128,12 +133,15 @@ function getProject(nik) {
                         $('#status').html(result.data[0].statusName)
                         $('#project_projectTitle').html(result.data[0].projectTitle);
                         $('#project_description').html(result.data[0].description);
-                        $('#project_status').html(result.data[0].statusName)
+                        $('#project_status').html(result.data[0].statusName);
+                        var status = (result.data[0].statusName);
+                        console.log(status);
+                        if (status == "Approved") {
+                            console.log("delete atribute disabled");
+                            document.getElementById("finish_btn").style.visibility = "visible";
+                        }
                     }
                 })
-            }
-            else {
-                $('#info_text').html("You dont have any project, please submit one.");
             }
         },
     })
@@ -144,7 +152,7 @@ function getProjectEdit(nik) {
         type: "GET",
         url: 'https://localhost:7229/api/Participants/' + nik,
         success: function (result) {
-            var project = result.data.projectID
+            var project = result.data.projectID;
             if (project != null) {
                 $.ajax({
                     type: "GET",
@@ -168,17 +176,20 @@ function dataRevisi(nik) {
         url: 'https://localhost:7229/api/Participants/' + nik,
         success: function (result) {
             $('#batch').html(result.data.batch);
-            var project = result.data.projectID
+            var project = result.data.projectID;
             if (project != null) {
                 let table = $("#table_revisi_project").DataTable({
                     ajax: {
                         url: "https://localhost:7229/api/Histories/Project/" + project,
                         dataType: "Json",
-                        dataSrc: "data" //need notice, kalau misal API kalian 
+                        dataSrc: "data" //need notice, kalau misal API kalian
                     },
                     columns: [
                         {
-                            "data": "id"
+                            data: null,
+                            render: function (data, type, row, meta) {
+                                return meta.row + 1;
+                            }
                         },
                         {
                             "data": "revision"
@@ -187,19 +198,68 @@ function dataRevisi(nik) {
                             "data": "message"
                         },
                         {
-                            "data": "statusID"
+                            "data": "statusID",         
+                            render: function (data, type, row) {
+                                if (data === 1) {
+                                    return 'Waiting for Review';
+                                } else if (data === 2) {
+                                    return 'Have Revision';
+                                } else if (data === 3) {
+                                    return 'Approved';
+                                } else if (data === 4) {
+                                    return 'Declined';
+                                } else if (data === 5) {
+                                    return 'Waiting for Score';
+                                } else if (data === 6) {
+                                    return 'Finished';
+                                }
+                            }
                         },
                         {
-                            "data": "time"
+                            "data": "time",
+                            "render": function (data, type, row) {
+                                var date = new Date(data);
+                                return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                            }
                         },
                     ],
                 });
+                $.ajax({
+                    type: "GET",
+                    url: 'https://localhost:7229/api/Histories/Project/' + project,
+                    success: function (result) {
+                        var count = 0;
+                        for (var i in result.data) {
+                            count++
+                        }
+                        console.log(count);
+                        $('#count_revisi').html(count);
+                    }
+                });
+
             }
         }
     })
 }
 
 function Finalization() {
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
     var nik = getCookie('nik');
     $.ajax({
         type: "GET",
@@ -219,16 +279,68 @@ function Finalization() {
                     data: JSON.stringify(obj)
                 }).done((result) => {
                     Swal.fire(
-                        'Data Berhasil Disimpan'
+                        'Your project has been submited for scoring'
                     );
                     $('#modal').hide();
                 }).fail((error) => {
                     Swal.fire(
-                        'Gagal Disimpan'
+                        'Failed to submit'
                     );
                 });
             };
         }
     });
 };
+
+function GetScore(nik) {
+    $.ajax({
+        type: "GET",
+        url: 'https://localhost:7229/api/Participants/' + nik,
+        success: function (result) {
+            var project = result.data.projectID
+            if (project != null) {
+                $.ajax({
+                    type: "GET",
+                    url: 'https://localhost:7229/api/Projects/' + project,
+                    success: function (result) {
+                        var score = result.data.score;
+                        if (score != null) {
+                            console.log(score);
+                            $('#score_value').html(result.data.score + '/5');
+                            const stars = $('div.text-end svg');
+
+                            for (let i = 0; i < score; i++) {
+                                $(stars[i]).attr("fill", "orange");
+                                $(stars[i]).attr("color", "orange");
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    })
+}
+
+function setIcon(nik) {
+    $.ajax({
+        type: "GET",
+        url: 'https://localhost:7229/api/Employees/' + nik,
+        success: function (result) {
+            var class_ = (result.data.classID) == 1 ? 'Java' : '.NET';
+            var icon_net = document.getElementById("icon_net");
+            var icon_java = document.getElementById("icon_java");
+            if (class_ == 'Java') {
+                icon_net.style.visibility = "hidden";
+                icon_java.style.visibility = "visible";
+            }
+            else {
+                icon_net.style.visibility = "visible";
+                icon_java.style.visibility = "hidden";
+            }
+        },
+    })
+}
+
+
+
 

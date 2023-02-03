@@ -59,11 +59,11 @@ public class ParticipantController : BaseController<Project, ParticipantReposito
 
 		if (status == 201)
 		{
-			TempData["message"] = "Submit Berhasil";
+			TempData["message"] = "Submit Project Success";
 			return RedirectToAction("index");
 		}
 
-		TempData["message"] = "Submit Gagal";
+		TempData["message"] = "Submit Failed";
 		return RedirectToAction("index");
 	}
 
@@ -83,12 +83,12 @@ public class ParticipantController : BaseController<Project, ParticipantReposito
 
 		if (status == 201)
 		{
-			TempData["message"] = "Submit Berhasil";
-			return RedirectToAction("index");
+			TempData["message"] = "Succes Update Project";
+			return RedirectToAction("myproject", "participant");
 		}
 
-		TempData["message"] = "Submit Gagal";
-		return RedirectToAction("index");
+		TempData["message"] = "Failed to update";
+		return RedirectToAction("myproject", "participant");
 	}
 
 	[HttpGet("MyProject/")]

@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    
     if (window.location.pathname === "/review" || window.location.pathname === "/review/") {
         console.log("Review kebuka");
         PageReview();
@@ -13,6 +14,14 @@
         GetTableMaster();
     }
 
+    var data = message;
+    console.log(data)
+    if (data != "") {
+        Swal.fire({
+            text: data,
+            confirmButtonText: 'Ok'
+        });
+    }
 
 
 });
@@ -66,8 +75,7 @@ function Review(id) {
 };
 
 function PostReview() {
-
-    var id = GetId();
+      var id = GetId();
     var currentDateTime = new Date();
     console.log(currentDateTime);
 
@@ -86,12 +94,12 @@ function PostReview() {
         data: JSON.stringify(obj)
     }).done((result) => {
         Swal.fire(
-            'Data Berhasil Disimpan'
+            'Review has been sent.'
         );
         window.location.assign("/trainer");
     }).fail((error) => {
         Swal.fire(
-            'Gagal Disimpan'
+            'Failed to post review'
         );
     });
 
@@ -115,7 +123,7 @@ function PageReview() {
             document.getElementById('re_name').value = (data.data[0].name);
             document.getElementById('re_email').value = (data.data[0].email);
             document.getElementById('re_class').value = (data.data[0].className);
-            document.getElementById('re_batch').value = String((data.data[0].batch));       
+            document.getElementById('re_batch').value = String((data.data[0].batch));
         },
     });
 
@@ -146,6 +154,27 @@ function GetTableMaster() {
         },
         columns: [
             {
+                "data": "statusName"
+            },
+            {
+                "data": "id",
+                render: function (data, type, row) {
+                    return `<button id="review_\'${data}\'" onclick="Review(\'${data}\')" class="btn btn-success">Review</button>
+                            <script>
+                            document.getElementById("review_\'${data}\'").addEventListener("click", function(){
+                              window.open("/review?id=" + encodeURIComponent(\'${data}\'), "_blank");
+                            });
+                            </script>`
+                }
+            },
+            {
+                "data": "id",
+                render: function (data, type, row) {
+                    return `<button onclick="viewUML(\'${data}\')" class="btn btn-info">UML</button> 
+                            <button onclick="viewBPMN(\'${data}\')" class="btn btn-danger">BPMN</button>`
+                }
+            },
+            {
                 "data": "projectTitle"
             },
             {
@@ -166,27 +195,7 @@ function GetTableMaster() {
             {
                 "data": "batch"
             },
-            {
-                "data": "statusName"
-            },
-            {
-                "data": "id",
-                render: function (data, type, row) {
-                    return `<button onclick="viewUML(\'${data}\')" class="btn btn-info">UML</button> 
-                            <button onclick="viewBPMN(\'${data}\')" class="btn btn-danger">BPMN</button>`
-                }
-            },
-            {
-                "data": "id",
-                render: function (data, type, row) {
-                    return `<button id="review_\'${data}\'" onclick="Review(\'${data}\')" class="btn btn-info">Review</button>
-                            <script>
-                            document.getElementById("review_\'${data}\'").addEventListener("click", function(){
-                              window.open("/review?id=" + encodeURIComponent(\'${data}\'), "_blank");
-                            });
-                            </script>`
-                }
-            },
+
         ],
     });
 }
@@ -199,6 +208,24 @@ function GetTableScore() {
             dataSrc: "data" //need notice, kalau misal API kalian 
         },
         columns: [
+            {
+                "data": "id",
+                render: function (data, type, row) {
+                    return `<button onclick="SetDataScore(\'${data}\')"type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	                        Score
+                            </button>`
+                }
+            },
+            {
+                "data": "id",
+                render: function (data, type, row) {
+                    return `<button onclick="viewUML(\'${data}\')" class="btn btn-info">UML</button> 
+                            <button onclick="viewBPMN(\'${data}\')" class="btn btn-danger">BPMN</button>`
+                }
+            },
+            {
+                "data": "link"
+            },
             {
                 "data": "projectTitle"
             },
@@ -226,45 +253,12 @@ function GetTableScore() {
             {
                 "data": "statusName"
             },
-            {
-                "data": "id",
-                render: function (data, type, row) {
-                    return `<button onclick="viewUML(\'${data}\')" class="btn btn-info">UML</button> 
-                            <button onclick="viewBPMN(\'${data}\')" class="btn btn-danger">BPMN</button>`
-                }
-            },
-            {
-                "data": "id",
-                render: function (data, type, row) {
-                    return `<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-	                        Score
-                            </button>`
-                }
-            },
         ],
     });
 }
 
-function SetDataScore() {
-    var nik = getCookie('nik');
-    $.ajax({
-        type: "GET",
-        url: 'https://localhost:7229/api/Participants/' + nik,
-        success: function (result) {
-            var project = result.data.projectID;
-            $.ajax({
-                type: "GET",
-                url: 'https://localhost:7229/api/Projects/Master/' + project,
-                success: function (data) {
-                    $('#title_project').html(data.data[0].projectTitle);
-                    $('#description').html(data.data[0].description);
-                    $('#name').html(data.data[0].name);
-                    $('#email').html(data.data[0].email);
-                },
-            });
-        }
-    });
-}
+
+
 
 function getCookie(cname) {
     let name = cname + "=";
@@ -281,35 +275,39 @@ function getCookie(cname) {
     }
     return "";
 }
-
-function submitScore() {
-    var nik = getCookie('nik');
+function SetDataScore(id) {
     $.ajax({
         type: "GET",
-        url: 'https://localhost:7229/api/Participants/' + nik,
-        success: function (result) {
-            var project = result.data.projectID;
+        url: 'https://localhost:7229/api/Projects/Master/' + id,
+        success: function (data) {
+            $('#title_project').html(data.data[0].projectTitle);
+            $('#description').html(data.data[0].description);
+            $('#name').html(data.data[0].name);
+            $('#email').html(data.data[0].email);
+            $("#score_btn").attr("onclick", `submitScore('${id}')`);
+        },
+    });
+}
 
-            var obj = new Object();
-            obj.ID = project;
-            obj.Score = document.querySelector('input[name="rating"]:checked').value;
-            console.log(obj.Score);
-            console.log(obj.ID);
-            $.ajax({
-                type: "POST",
-                url: 'https://localhost:7229/api/Projects/Score',
-                dataType: "Json",
-                contentType: "application/json",
-                data: JSON.stringify(obj)
-            }).done((result) => {
-                Swal.fire(
-                    'Data Berhasil Disimpan'
-                );
-            }).fail((error) => {
-                Swal.fire(
-                    'Gagal Disimpan'
-                );
-            });
-        }
+function submitScore(id) {
+    var obj = new Object();
+    obj.ID = id;
+    obj.Score = document.querySelector('input[name="rating"]:checked').value;
+    console.log(obj.Score);
+    console.log(obj.ID);
+    $.ajax({
+        type: "POST",
+        url: 'https://localhost:7229/api/Projects/Score',
+        dataType: "Json",
+        contentType: "application/json",
+        data: JSON.stringify(obj)
+    }).done((result) => {
+        Swal.fire(
+            'Data Berhasil Disimpan'
+        );
+    }).fail((error) => {
+        Swal.fire(
+            'Gagal Disimpan'
+        );
     });
 }

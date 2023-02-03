@@ -1,7 +1,6 @@
 ﻿@{
 	Layout = "_LayoutBox";
 }
-
 <div class="row">
 	<div class="col-lg-12">
 		<div class="card">
@@ -17,103 +16,126 @@
 							<img src="~/hope-ui-html-1.2.0/html/assets/images/avatars/avtar_3.png" alt="User-Profile" class="theme-color-pink-img img-fluid rounded-pill avatar-100">
 						</div>
 						<div class="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
-							<h4 class="me-2 h4">Austin Robertson</h4>
-							<span> - Web Developer</span>
+							<h4 id="name2" class="me-2 h4">Austin Robertson</h4>
+							<span id="position1"> - Web Developer</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-		<div class="row user-left-part">
-			<div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
-				<div class="row ">
-					<div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center pt-5">
-						<img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" class="rounded-circle">
+	<div class="col-lg-2 col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between align-items-center">
+					<p class="mb-2">Action</p>
+				</div>
+				<button title="Delete Project" onclick="DeleteProject()" class="mt-4 btn btn-danger d-block rounded">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+						<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+					</svg>
+				</button>
+				<button title="Edit Project" type="button" data-bs-toggle="modal" data-bs-target="#modalEdit" class="mt-4 btn btn-warning d-block rounded">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+						<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+					</svg>
+				</button>
+				<button id="finish_btn" title="Finish Project" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalSignUp" class="mt-4 btn btn-success d-block rounded" style="visibility:hidden;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+						<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+						<path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+					</svg>
+				</button>
+				<span>Upload your project to github!</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-info text-white rounded p-3">
+						<svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M13.1043 4.17701L14.9317 7.82776C15.1108 8.18616 15.4565 8.43467 15.8573 8.49218L19.9453 9.08062C20.9554 9.22644 21.3573 10.4505 20.6263 11.1519L17.6702 13.9924C17.3797 14.2718 17.2474 14.6733 17.3162 15.0676L18.0138 19.0778C18.1856 20.0698 17.1298 20.8267 16.227 20.3574L12.5732 18.4627C12.215 18.2768 11.786 18.2768 11.4268 18.4627L7.773 20.3574C6.87023 20.8267 5.81439 20.0698 5.98724 19.0778L6.68385 15.0676C6.75257 14.6733 6.62033 14.2718 6.32982 13.9924L3.37368 11.1519C2.64272 10.4505 3.04464 9.22644 4.05466 9.08062L8.14265 8.49218C8.54354 8.43467 8.89028 8.18616 9.06937 7.82776L10.8957 4.17701C11.3477 3.27433 12.6523 3.27433 13.1043 4.17701Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
 					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center pt-5">
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-success btn-block follow" data-bs-toggle="modal" data-bs-target="#exampleModalSignUp">
-							Finish
-						</button>
-						<button type="button" class="btn btn-warning btn-block follow" data-bs-toggle="modal" data-bs-target="#modalEdit">
-							Edit
-						</button>		
-						<button onclick="DeleteProject()" class="btn btn-danger btn-block">Delete</button>
+					<div class="text-end">
+						Title
+						<h2 id="project_projectTitle">Title Project</h2>
 					</div>
-
 				</div>
 			</div>
-			<div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
-				<div class="row profile-right-section-row">
-					<div class="col-md-12 profile-header">
-						<div class="row">
-							<div class="col-md-12 profile-header-section1 pull-left">
-								<h1>Juan Perez</h1>
-								<h5>Developer</h5>
-							</div>
-						</div>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-info text-white rounded p-3">
+						<svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M12 17.8476C17.6392 17.8476 20.2481 17.1242 20.5 14.2205C20.5 11.3188 18.6812 11.5054 18.6812 7.94511C18.6812 5.16414 16.0452 2 12 2C7.95477 2 5.31885 5.16414 5.31885 7.94511C5.31885 11.5054 3.5 11.3188 3.5 14.2205C3.75295 17.1352 6.36177 17.8476 12 17.8476Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M14.3889 20.8572C13.0247 22.3719 10.8967 22.3899 9.51953 20.8572" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
 					</div>
-					<div class="col-md-12">
-						<div class="row">
-							<div class="col-md-12">
-								<!-- Tab panes -->
-								<nav>
-									<div class="nav nav-tabs" id="nav-tab" role="tablist">
-										<button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-												data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-												aria-selected="true">
-											Project
-										</button>
-										<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-												data-bs-target="#nav-profile" type="button" role="tab"
-												aria-controls="nav-profile" aria-selected="false">
-											Revision
-										</button>
-									</div>
-								</nav>
-								<div class="tab-content pt-3" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-										<div class="row">
-											<div class="col-md-4">
-												<label>Project Title</label>
-											</div>
-											<div class="col-md-8">
-												<p id="project_projectTitle">Aplikasi</p>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<label>Description</label>
-											</div>
-											<div class="col-md-8">
-												<p id="project_description">ini adalah aplikasi</p>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<label>Current Status</label>
-											</div>
-											<div class="col-md-8">
-												<p id="project_status">Revisi</p>
-											</div>
-										</div>
-									</div>
-									<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-										<table id="table_revisi_project" class="display">
-											<thead>
-												<tr>
-													<th>No</th>
-													<th>Revisi</th>
-													<th>Message</th>
-													<th>Status</th>
-													<th>Date</th>
-												</tr>
-											</thead>
-										</table>
-									</div>
-								</div>
-							</div>
+					<div class="text-end">
+						Current Status
+						<h2 id="project_status">Status</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2 col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-info text-white rounded p-3">
+						<svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M8.82812 10.921L16.3011 3.44799C17.2321 2.51799 18.7411 2.51799 19.6721 3.44799L20.8891 4.66499C21.8201 5.59599 21.8201 7.10599 20.8891 8.03599L13.3801 15.545C12.9731 15.952 12.4211 16.181 11.8451 16.181H8.09912L8.19312 12.401C8.20712 11.845 8.43412 11.315 8.82812 10.921Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M15.1655 4.60254L19.7315 9.16854" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="text-end">
+						Revisi
+						<h2 id="count_revisi" class="counter"></h2>
+					</div>
+				</div>
+				<a type="button" data-bs-toggle="modal" data-bs-target="#modalRevisi" class="mt-4 btn btn-success d-block rounded">Details</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2 col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-info text-white rounded p-3">
+						<svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M14.7379 2.76175H8.08493C6.00493 2.75375 4.29993 4.41175 4.25093 6.49075V17.2037C4.20493 19.3167 5.87993 21.0677 7.99293 21.1147C8.02393 21.1147 8.05393 21.1157 8.08493 21.1147H16.0739C18.1679 21.0297 19.8179 19.2997 19.8029 17.2037V8.03775L14.7379 2.76175Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M14.4751 2.75V5.659C14.4751 7.079 15.6231 8.23 17.0431 8.234H19.7981" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M14.2882 15.3584H8.88818" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M12.2432 11.606H8.88721" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="text-end">
+						Score
+						<h2 id="score_value" class="counter"></h2>
+						<div>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" color="black" fill="black" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" color="black" fill="black" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" color="black" fill="black" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" color="black" fill="black" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15px" color="black" fill="black" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+							</svg>
 						</div>
 					</div>
 				</div>
@@ -122,7 +144,43 @@
 	</div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Revisi Details-->
+
+<div class="modal fade" id="modalRevisi" tabindex="-1" role="dialog" aria-labelledby="modalRevisi" aria-hidden="true">
+	<div class="modal-dialog modal-fullscreen" role="document">
+		<div class="modal-content">
+			<div class="modal-body p-0">
+				<div class="card">
+					<div class="card-header d-flex justify-content-between">
+						<div class="header-title">
+							<h4 class="card-title">Revisi</h4>
+						</div>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="table_revisi_project" class="table table-striped" style="width:100%">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Revisi</th>
+										<th>Message</th>
+										<th>Status</th>
+										<th>Date</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Finish -->
 <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-md" role="document">
 		<div class="modal-content">
@@ -133,28 +191,28 @@
 						<p class="mb-0">Please enter your project github link to finalize your project</p>
 					</div>
 					<div class="card-body pb-3">
-						<form role="form text-left">
+						<form onsubmit="Finalization()" role="form text-left" class="row g-3 needs-validation" novalidate>
 							<p>
-								Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
-								Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.
-								Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.
+								If you build a great system, users will tell each other about it.
+								The words that come out of the mouth are very powerful!
+
+								Therefore, submit your project now!
 							</p>
 							<div class="form-floating mb-3">
 								<input type="text" id="link_github" class="form-control" placeholder="Link Github" aria-label="Github" required>
 								<label for="floatingInput">Link Github</label>
 							</div>
-							<div class="form-floating mb-3">
-								<input type="text" class="form-control" placeholder="Link Youtube" aria-label="Youtube">
-								<label for="floatingInput">Link Youtube</label>
-							</div>
 							<div class="form-check form-check-info text-left">
-								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked="">
-								<label class="form-check-label" for="flexCheckDefault">
-									I agree the <a href="javascrpt:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+								<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+								<label class="form-check-label" for="invalidCheck">
+									I've done a presentation my project
 								</label>
+								<div class="invalid-feedback">
+									You must done presentation project before submitting.
+								</div>
 							</div>
 							<div class="text-center">
-								<button onclick="Finalization()" type="button" class="btn bg-gradient-primary btn-lg btn-rounded w-100 mt-4 mb-0">Submit</button>
+								<button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Submit</button>
 							</div>
 						</form>
 					</div>
@@ -164,7 +222,7 @@
 	</div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Edit Project-->
 <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-md" role="document">
 		<div class="modal-content">
@@ -177,21 +235,21 @@
 					<div class="card-body">
 						<form role="form" method="POST" enctype="multipart/form-data" action="Participant/Edit" id="formSubmit">
 							<div class="form-floating mb-3">
-								<input id="title_form" type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title">
+								<input id="title_form" type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title" required>
 								<label for="title_form">Title</label>
 							</div>
 							<div class="form-floating">
 								<textarea id="description_form" class="form-control" name="Description" placeholder="Leave a comment here"
-										  style="height: 150px;"></textarea>
+										  style="height: 150px;" required></textarea>
 								<label for="description_form">Description</label>
 							</div>
 							<div class="mb-3">
 								<label for="formUML" class="form-label">UML file image</label>
-								<input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML" id="formUML">
+								<input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML" id="formUML" required>
 							</div>
 							<div class="mb-3">
 								<label for="formUML" class="form-label">BPMN file image </label>
-								<input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN" id="formBPMN">
+								<input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN" id="formBPMN" required>
 							</div>
 							<div class="text-center">
 								<button type="submit" id="btn_submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Submit</button>

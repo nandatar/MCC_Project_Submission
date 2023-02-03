@@ -10,21 +10,21 @@
 	<div class="card-body">
 		<form role="form" method="POST" enctype="multipart/form-data" action="Participant/Submit" id="formSubmit">
 			<div class="form-floating mb-3">
-				<input type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title">
+				<input type="text" class="form-control" name="Title" placeholder="Title" aria-label="Title" required>
 				<label for="floatingInput">Title</label>
 			</div>
 			<div class="form-floating">
 				<textarea class="form-control" name="Description" placeholder="Leave a comment here"
-						  id="floatingTextarea" style="height: 150px;"></textarea>
+						  id="floatingTextarea" style="height: 150px;" required></textarea>
 				<label for="floatingTextarea">Description</label>
 			</div>
 			<div class="mb-3">
 				<label for="formUML" class="form-label">UML file image</label>
-				<input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML" id="formUML">
+				<input type="file" accept="uml/png, uml/jpeg" class="form-control" name="UML" placeholder="UML" aria-label="UML" id="formUML" required>
 			</div>
 			<div class="mb-3">
 				<label for="formUML" class="form-label">BPMN file image </label>
-				<input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN" id="formBPMN">
+				<input type="file" accept="bpmn/png, bpmn/jpeg" class="form-control" name="BPMN" placeholder="BPMN" aria-label="BPMN" id="formBPMN" required>
 			</div>
 			<div class="text-center">
 				<button type="submit" id="btn_submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Submit</button>
